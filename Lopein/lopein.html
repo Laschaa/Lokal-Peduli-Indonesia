@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lokal Peduli Indonesia</title>
+    <style>
+     /* 1. VARIABEL CSS (:root) */
+        :root {
+            /* Tema Terang (Default) */
+            --bg-color: #ffffff;
+            --text-color: #1a1a1a;
+            --card-bg: #f0f0f0;
+            --accent-color: #3498db;
+        }
+
+        /* 2. TEMA GELAP (Akan diaktifkan lewat JS) */
+        .dark-theme {
+            --bg-color: #1a1a1a;
+            --text-color: #ffffff;
+            --card-bg: #2d2d2d;
+            --accent-color: #00d1ff;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 50px;
+            transition: 0.5s; /* Agar perpindahan warna halus */
+        }
+
+        /* Tombol Toggle */
+        .btn-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 20px;
+            border: 2px solid var(--accent-color);
+            background: transparent;
+            color: var(--text-color);
+            font-weight: bold;
+        }
+
+        .profil-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .link-card {
+            background-color: var(--card-bg);
+            display: block;
+            text-align: center;
+            padding: 15px;
+            margin-bottom: 15px;
+            text-decoration: none;
+            color: var(--text-color);
+            border-radius: 12px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .link-card:hover {
+            transform: scale(1.05);
+            background-color: var(--accent-color);
+            color: white;
+        }
+ </style>
+</head>
+<body>
+    <button class="btn-toggle" onclick="saklarTema()">Ganti Mode</button>
+
+    <img src="Frame 4.png" class="profil-img">
+    <h2>Lokal Peduli Indonesia</h2> 
+    <P>Informasi</P> 
+
+    <div class="container">
+        <a href="https://www.instagram.com/lope_indonesia" class="link-card">instagram</a>
+        <a href="https://www.tiktok.com/@lope_indonesiaa" class="link-card">Tiktok</a>
+    </div>
+
+    <script>
+        function saklarTema() {
+            // Kita cari elemen <body>
+            const bodyHalaman = document.body;
+            
+            // Kita "Toggle" (Pasang/Lepas) class bernama 'dark-theme'
+            bodyHalaman.classList.toggle("dark-theme");
+
+            // Tambahan: Ubah tulisan tombolnya
+            const tombol = document.querySelector(".btn-toggle");
+            if (bodyHalaman.classList.contains("dark-theme")) {
+                tombol.innerHTML = "Mode Terang ☀️";
+            } else {
+                tombol.innerHTML = "Mode Gelap 🌙";
+            }
+        }
+    </script>
+</body>
+</html>
